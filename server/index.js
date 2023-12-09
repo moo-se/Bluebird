@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRoute from "./routes/auth.js";
 import userRoute from "./routes/user.js";
+import tweetRoute from "./routes/tweet.js";
 import connectDB from "./models/config/db.js";
 
 dotenv.config();
@@ -14,6 +15,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use("/api/bluebird/auth", authRoute);
 app.use("/api/bluebird/users", userRoute);
+app.use("/api/bluebird/tweets", tweetRoute);
 
 app.get("/api/bluebird", (req, res) => {
   res.status(200).json({
