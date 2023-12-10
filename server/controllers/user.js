@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import Tweet from "../models/Tweet.js";
 import { handleError } from "../error.js";
 
 export const getLoggedInUser = async (req, res, next) => {
@@ -50,6 +51,7 @@ export const deleteUser = async (req, res, next) => {
   if (req.params.id === req.user.id) {
     try {
       await User.findByIdAndDelete(req.params.id);
+      await Tweet.deleteMany({ userId: req.params.id });
       res.status(200).json("User deleted");
     } catch (e) {
       next(e);

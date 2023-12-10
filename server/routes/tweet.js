@@ -4,6 +4,9 @@ import {
   createTweet,
   deleteTweet,
   likeOrUnlikeTweet,
+  getAllTweets,
+  getUserTweets,
+  getExploreTweets,
 } from "../controllers/tweet.js";
 
 const router = express.Router();
@@ -16,5 +19,14 @@ router.delete("/:id", verifyToken, deleteTweet);
 
 //Like or unlike tweet
 router.put("/:id/likes", likeOrUnlikeTweet);
+
+//Get all timeline tweet
+router.get("/timeline/:id", getAllTweets);
+
+//Get user tweets only
+router.get("/user/all/:id", getUserTweets);
+
+//Get explore tweets
+router.get("/explore", getExploreTweets);
 
 export default router;
