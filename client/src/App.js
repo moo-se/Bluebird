@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Explore from "./pages/Explore/Explore.jsx";
 import Signin from "./pages/Signin/Signin.jsx";
+import Error from "./pages/Error/Error.jsx";
 
 import "./App.css";
 
@@ -19,6 +20,7 @@ const Layout = () => {
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <Error />,
     element: <Layout />,
     children: [
       {
@@ -26,19 +28,19 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/profile/:id",
+        path: "profile/:id",
         element: <Profile />,
       },
       {
-        path: "/explore",
+        path: "explore",
         element: <Explore />,
       },
       {
-        path: "/signin",
+        path: "signin",
         element: <Signin />,
       },
       {
-        path: "signout",
+        path: "logout",
         element: <Signin />,
       },
     ],
