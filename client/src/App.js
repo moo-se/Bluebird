@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Explore from "./pages/Explore/Explore.jsx";
@@ -9,7 +9,7 @@ import "./App.css";
 
 const Layout = () => {
   return (
-    <div>
+    <div className="md:w-8/12 mx-auto">
       <Navbar />
       <Outlet></Outlet>
     </div>
